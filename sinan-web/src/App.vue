@@ -1,28 +1,47 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <HeaderPage />
+
+    <div class="main">
+      <LeftSide />
+      <RightSide />
+    </div>
   </div>
+
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HeaderPage from "./components/header";
+import LeftSide from "./components/left";
+import RightSide from "./components/right";
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    HeaderPage,
+    LeftSide,
+    RightSide
   }
 }
 </script>
 
 <style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
   margin-top: 60px;
+  text-decoration: none;
+  color: #39474b;
+  font-size: 12px;
+  font-family: "Lantinghei SC","Open Sans","Lucida Grande",Helvetica,"PingFang SC",STheiti,Verdana,"microsoft yahei","simsun",Geneva,sans-serif;
 }
+
+.main {
+  height: 100%;
+}
+
 </style>
