@@ -1,3 +1,6 @@
 module.exports = {
-  transpileDependencies: true
-}
+  transpileDependencies: true,
+  devServer: {
+    onBeforeSetupMiddleware: require("./mock/mock.js")
+  }
+};

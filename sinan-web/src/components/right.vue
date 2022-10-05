@@ -34,36 +34,23 @@
                                                                      class="green">新窗口打开搜索结果</label></div>
                 </div>
                 <div class="box-links">
-                    <div class="links panel">
+                    <div class="links panel" v-for="(categories, name) in collections" :key="'collection' + name">
                         <div class="panel-heading">
                             <i class="fa fa-pinterest"></i>
-                            常用
-                            <span class="heading-info">Title介绍</span>
+                            {{name}}
+                            <span class="heading-info" style="display: none">Title介绍</span>
                         </div>
                         <div class="panel-body">
-                            <dl class="row">
+                            <dl class="row" v-for="(category, categoryName) in categories" :key="'category' + categoryName
+">
                                 <dt class="col-sm-3 col-md-2 col-xs-4 row2">
-                                    <a href="#nogo" target="_blank">分类1</a>
+                                    <a href="#nogo" target="_blank">{{categoryName}}</a>
                                 </dt>
-                                <dd class="col-sm-3 col-md-2 col-xs-4"><a href="http://planforest.com/category/uidesign/freebies" target="_blank"><i class="link-logo"></i><span class="link-title">测试标题</span><span class="link-info">测试介绍</span></a></dd>
-                                <dd class="col-sm-3 col-md-2 col-xs-4"><a href="http://planforest.com/category/uidesign/freebies" target="_blank"><i class="link-logo"></i><span class="link-title">测试标题</span><span class="link-info">测试介绍</span></a></dd>
-                                <dd class="col-sm-3 col-md-2 col-xs-4"><a href="http://planforest.com/category/uidesign/freebies" target="_blank"><i class="link-logo"></i><span class="link-title">测试标题</span><span class="link-info">测试介绍</span></a></dd>
-                                <dd class="col-sm-3 col-md-2 col-xs-4"><a href="http://planforest.com/category/uidesign/freebies" target="_blank"><i class="link-logo"></i><span class="link-title">测试标题</span><span class="link-info">测试介绍</span></a></dd>
-                                <dd class="col-sm-3 col-md-2 col-xs-4"><a href="http://planforest.com/category/uidesign/freebies" target="_blank"><i class="link-logo"></i><span class="link-title">测试标题</span><span class="link-info">测试介绍</span></a></dd>
-                                <dd class="col-sm-3 col-md-2 col-xs-4"><a href="http://planforest.com/category/uidesign/freebies" target="_blank"><i class="link-logo"></i><span class="link-title">测试标题</span><span class="link-info">测试介绍</span></a></dd>
+                                <dd class="col-sm-3 col-md-2 col-xs-4" v-for="record in category" :key="'record' + record.id">
+                                    <a :href="record.link" target="_blank"><i class="link-logo"></i><span class="link-title">{{record.title}}</span><span class="link-info">{{record.info}}</span></a>
+                                </dd>
                             </dl>
 
-                            <dl class="row">
-                                <dt class="col-sm-3 col-md-2 col-xs-4 row2">
-                                    <a href="#nogo" target="_blank">分类2</a>
-                                </dt>
-                                <dd class="col-sm-3 col-md-2 col-xs-4"><a href="http://planforest.com/category/uidesign/freebies" target="_blank"><i class="link-logo"></i><span class="link-title">测试标题</span><span class="link-info">测试介绍</span></a></dd>
-                                <dd class="col-sm-3 col-md-2 col-xs-4"><a href="http://planforest.com/category/uidesign/freebies" target="_blank"><i class="link-logo"></i><span class="link-title">测试标题</span><span class="link-info">测试介绍</span></a></dd>
-                                <dd class="col-sm-3 col-md-2 col-xs-4"><a href="http://planforest.com/category/uidesign/freebies" target="_blank"><i class="link-logo"></i><span class="link-title">测试标题</span><span class="link-info">测试介绍</span></a></dd>
-                                <dd class="col-sm-3 col-md-2 col-xs-4"><a href="http://planforest.com/category/uidesign/freebies" target="_blank"><i class="link-logo"></i><span class="link-title">测试标题</span><span class="link-info">测试介绍</span></a></dd>
-                                <dd class="col-sm-3 col-md-2 col-xs-4"><a href="http://planforest.com/category/uidesign/freebies" target="_blank"><i class="link-logo"></i><span class="link-title">测试标题</span><span class="link-info">测试介绍</span></a></dd>
-                                <dd class="col-sm-3 col-md-2 col-xs-4"><a href="http://planforest.com/category/uidesign/freebies" target="_blank"><i class="link-logo"></i><span class="link-title">测试标题</span><span class="link-info">测试介绍</span></a></dd>
-                            </dl>
                         </div>
 
 
@@ -76,10 +63,26 @@
 
 <script>
     import 'font-awesome/css/font-awesome.min.css'
+    import axios from 'axios'
+
     export default {
         name: 'RightSide',
         props: {
-            msg: String
+            msg: String,
+        },
+        data() {
+            return {
+                collections: {}
+            }
+        },
+        mounted: function () {
+            let that = this;
+            axios.get("/record/get-all-collect").then(function (response) {
+                that.collections = response.data;
+            })
+        },
+        methods: {
+
         }
     }
 </script>

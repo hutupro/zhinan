@@ -1,0 +1,12 @@
+[
+    {
+        "id": 3,
+        "title": "码云",
+        "info": "基于 Git 的代码托管和研发协作平台",
+        "collection": "检索",
+        "category": "代码库",
+        "link": "https://gitee.com/",
+        "tag": "git",
+        "weight": 1
+    }
+]
