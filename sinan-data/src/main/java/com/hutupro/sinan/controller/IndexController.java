@@ -1,17 +1,17 @@
 package com.hutupro.sinan.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 
 /**
  * @author hutupro
  * @since 2022/10/5
  */
-@RestController
+@Controller
 public class IndexController {
-    @RequestMapping(value = "/")
+    @GetMapping(value = "/")
     public String index() {
-        return "hello sinan";
+        return "index";
     }
 
 }
