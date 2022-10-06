@@ -1,9 +1,8 @@
-package com.hutupro.sinan.data;
+package com.hutupro.zhinan.data;
 
-import com.hutupro.sinan.model.Record;
+import com.hutupro.zhinan.model.Record;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 

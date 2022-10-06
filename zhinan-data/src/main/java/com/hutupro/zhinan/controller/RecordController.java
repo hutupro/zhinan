@@ -1,8 +1,8 @@
-package com.hutupro.sinan.controller;
+package com.hutupro.zhinan.controller;
 
 import com.google.gson.Gson;
-import com.hutupro.sinan.model.Record;
-import com.hutupro.sinan.service.RecordService;
+import com.hutupro.zhinan.model.Record;
+import com.hutupro.zhinan.service.RecordService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

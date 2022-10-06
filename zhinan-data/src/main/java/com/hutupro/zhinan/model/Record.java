@@ -1,4 +1,4 @@
-package com.hutupro.sinan.model;
+package com.hutupro.zhinan.model;
 
 import lombok.Data;
 

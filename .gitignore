@@ -2,7 +2,7 @@
 *.iml
 */target
 */package-lock.json
-sinan.db
+zhinan.db
 
 .DS_Store
 node_modules

@@ -1,4 +1,4 @@
-# sinan-web
+# zhinan-web
 
 ## Project setup
 ```

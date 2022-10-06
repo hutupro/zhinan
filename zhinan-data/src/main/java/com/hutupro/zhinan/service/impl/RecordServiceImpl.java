@@ -1,8 +1,8 @@
-package com.hutupro.sinan.service.impl;
+package com.hutupro.zhinan.service.impl;
 
-import com.hutupro.sinan.data.RecordDao;
-import com.hutupro.sinan.model.Record;
-import com.hutupro.sinan.service.RecordService;
+import com.hutupro.zhinan.data.RecordDao;
+import com.hutupro.zhinan.model.Record;
+import com.hutupro.zhinan.service.RecordService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

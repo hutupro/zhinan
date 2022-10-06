@@ -5,12 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>pro.hutu</groupId>
-    <artifactId>sinan</artifactId>
+    <artifactId>zhinan</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>build</module>
-        <module>sinan-data</module>
+        <module>zhinan-data</module>
     </modules>
 
 

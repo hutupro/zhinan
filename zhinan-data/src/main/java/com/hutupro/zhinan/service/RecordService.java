@@ -1,6 +1,6 @@
-package com.hutupro.sinan.service;
+package com.hutupro.zhinan.service;
 
-import com.hutupro.sinan.model.Record;
+import com.hutupro.zhinan.model.Record;
 
 import java.util.List;
 

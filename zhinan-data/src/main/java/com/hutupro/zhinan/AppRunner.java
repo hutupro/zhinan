@@ -1,4 +1,4 @@
-package com.hutupro.sinan;
+package com.hutupro.zhinan;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
