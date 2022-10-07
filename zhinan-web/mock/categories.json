@@ -1,0 +1,56 @@
+{
+    "检索": [
+        {
+            "name": "搜索引擎",
+            "collectionName": "检索",
+            "info": "搜索引擎info",
+            "weight": 2
+        },
+        {
+            "name": "代码库",
+            "collectionName": "检索",
+            "info": "代码库info",
+            "weight": 1
+        }
+    ],
+    "检索2": [
+        {
+            "name": "代码库",
+            "collectionName": "检索2",
+            "info": "代码库info",
+            "weight": 1
+        }
+    ],
+    "行数测试": [
+        {
+            "name": "1行",
+            "collectionName": "行数测试",
+            "info": "111",
+            "weight": 1
+        },
+        {
+            "name": "2行",
+            "collectionName": "行数测试",
+            "info": "111",
+            "weight": 1
+        },
+        {
+            "name": "3行",
+            "collectionName": "行数测试",
+            "info": "111",
+            "weight": 1
+        },
+        {
+            "name": "4行",
+            "collectionName": "行数测试",
+            "info": "111",
+            "weight": 1
+        },
+        {
+            "name": "5行",
+            "collectionName": "行数测试",
+            "info": "111",
+            "weight": 1
+        }
+    ]
+}

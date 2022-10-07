@@ -2,7 +2,7 @@
   <div class="header">
     <div class="logo-bg">
       <div class="logo">
-        知南<span>知识索引管理工具</span>
+        知南<span>知识管理索引工具</span>
       </div>
     </div>
 

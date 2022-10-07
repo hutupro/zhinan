@@ -27,5 +27,10 @@ module.exports = function (devServer) {
             var json = getJsonFile("./records-by-collect.json");
             res.json(Mock.mock(json));
         });
+
+        devServer.app.get("/category/all-collect", function (rep, res) {
+            var json = getJsonFile("./categories.json");
+            res.json(Mock.mock(json));
+        });
     }
 };

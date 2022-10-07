@@ -36,6 +36,7 @@
                 <div class="box-links">
                     <div class="links panel" v-for="(categories, name) in collections" :key="'collection' + name">
                         <div class="panel-heading">
+                            <div :id="md5(name).substr(0,3)" style="position: relative;top: -70px;"></div>
                             <i class="fa fa-pinterest"></i>
                             {{name}}
                             <span class="heading-info" style="display: none">Title介绍</span>
@@ -45,8 +46,9 @@
 ">
                                 <dt class="col-sm-3 col-md-2 col-xs-4" :style="'min-height: ' + (50 + parseInt(category.length/5) * 70) + 'px'">
                                     <a target="_blank">{{categoryName}}</a>
+                                    <div :id="md5(name + categoryName).substr(0,3)" style="position: relative;top: -110px;"></div>
                                 </dt>
-                                <dd class="col-sm-3 col-md-2 col-xs-4" v-for="record in category" :key="'record' + record.id">
+                                <dd class="col-sm-3 col-md-2 col-xs-4" v-for="record in category" :key="'record' + record.id + '-' + Math.random()*1000 ">
                                     <a :href="record.link" target="_blank"><i class="link-logo"></i><span class="link-title">{{record.title}}</span><span class="link-info">{{record.info}}</span></a>
                                 </dd>
                             </dl>
@@ -61,6 +63,7 @@
 <script>
     import 'font-awesome/css/font-awesome.min.css'
     import axios from 'axios'
+    import md5 from 'js-md5'
 
     export default {
         name: 'RightSide',
@@ -79,7 +82,7 @@
             })
         },
         methods: {
-
+            md5
         }
     }
 </script>
