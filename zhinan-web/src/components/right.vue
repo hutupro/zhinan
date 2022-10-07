@@ -43,17 +43,14 @@
                         <div class="panel-body">
                             <dl class="row" v-for="(category, categoryName) in categories" :key="'category' + categoryName
 ">
-                                <dt class="col-sm-3 col-md-2 col-xs-4 row2">
-                                    <a href="#nogo" target="_blank">{{categoryName}}</a>
+                                <dt class="col-sm-3 col-md-2 col-xs-4" :style="'min-height: ' + (50 + parseInt(category.length/5) * 70) + 'px'">
+                                    <a target="_blank">{{categoryName}}</a>
                                 </dt>
                                 <dd class="col-sm-3 col-md-2 col-xs-4" v-for="record in category" :key="'record' + record.id">
                                     <a :href="record.link" target="_blank"><i class="link-logo"></i><span class="link-title">{{record.title}}</span><span class="link-info">{{record.info}}</span></a>
                                 </dd>
                             </dl>
-
                         </div>
-
-
                     </div>
                 </div>
             </div>
@@ -151,6 +148,10 @@
     .row {
         margin-left: -10px;
         margin-right: -10px;
+    }
+
+    .links dt.row1 {
+        min-height: 60px;
     }
 
     .links dt.row2 {
