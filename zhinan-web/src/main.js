@@ -9,6 +9,7 @@ new Vue({
   render: h => h(App),
   metaInfo() {
     return {
+      title: "知南",
       meta: [
         {
           name: "referrer",

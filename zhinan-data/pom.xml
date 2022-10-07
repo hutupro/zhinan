@@ -62,6 +62,7 @@
     </dependencies>
 
     <build>
+        <finalName>zhinan-${project.version}</finalName>
         <plugins>
             <!--TODO 待优化一键打包，在此模块generate-resources compile过久-->
             <!--<plugin>
