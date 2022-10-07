@@ -2,7 +2,7 @@
   <div class="header">
     <div class="logo-bg">
       <div class="logo">
-        知识索引
+        知南<span>知识索引管理工具</span>
       </div>
     </div>
 
@@ -34,5 +34,14 @@ export default {
     float: left;
     position: relative;
     margin: 11px 0 0 18px;
+    color: #31c193;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .logo span {
+    font-size: 16px;
+    font-weight: normal;
+    margin-left: 10px;
   }
 </style>
