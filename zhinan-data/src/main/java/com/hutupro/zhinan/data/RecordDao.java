@@ -11,6 +11,6 @@ import java.util.List;
  * @since 2022/10/5
  */
 public interface RecordDao extends CrudRepository<Record, Integer> {
-    @Query(value = "select id, title, info, category, link, tag, weight, collection from Record where 1=1", nativeQuery = true)
+    @Query(value = "select id, title, info, category, link, tag, weight, collection from Record where 1=1 order by weight desc", nativeQuery = true)
     List<Record> getAll();
 }
