@@ -3,21 +3,22 @@
         <div>
             <div class="xxx">
                 <el-button size="small" round @click="createBtn">创建</el-button>
-                <el-table :data="collections">
-                    <el-table-column prop="name" label="名称" width="200"></el-table-column>
+                <el-table :data="categories">
+                    <el-table-column prop="name" label="分类名称" width="200"></el-table-column>
+                    <el-table-column prop="collectionName" label="所属集合名称" width="200"></el-table-column>
                     <el-table-column prop="info" label="描述" width="400"></el-table-column>
                     <el-table-column prop="weight" label="权重" width="100"></el-table-column>
                     <el-table-column
                             label="操作"
                             width="240">
                         <template slot-scope="scope">
-                            <el-button @click.native.prevent="queryRow(collections[scope.$index])" type="text" size="small">
+                            <el-button @click.native.prevent="queryRow(categories[scope.$index])" type="text" size="small">
                                 查看
                             </el-button>
-                            <el-button @click.native.prevent="modifyBtn(collections[scope.$index])" type="text" size="small">
+                            <el-button @click.native.prevent="modifyBtn(categories[scope.$index])" type="text" size="small">
                                 修改
                             </el-button>
-                            <el-button @click.native.prevent="deleteRow(collections[scope.$index])" type="text" size="small">
+                            <el-button @click.native.prevent="deleteRow(categories[scope.$index])" type="text" size="small">
                                 删除
                             </el-button>
                         </template>
@@ -32,19 +33,23 @@
                         :visible.sync="dialogVisible"
                         width="30%">
                     <div>
-                        <el-form ref="collection" :model="collection" label-width="80px">
-                            <el-form-item label="集合">
-                                <el-input v-model="collection.name" :disabled="nameDisabled"></el-input>
+                        <el-form ref="category" :model="category" label-width="80px">
+                            <el-form-item label="分类名称">
+                                <el-input v-model="category.name" :disabled="nameDisabled"></el-input>
+                            </el-form-item>
+
+                            <el-form-item label="所属集合名称">
+                                <el-input v-model="category.collectionName" :disabled="nameDisabled"></el-input>
                             </el-form-item>
 
                             <el-form-item label="描述">
-                                <el-input type="textarea" v-model="collection.info" :disabled="inputDisabled"></el-input>
+                                <el-input type="textarea" v-model="category.info" :disabled="inputDisabled"></el-input>
                             </el-form-item>
                             <el-form-item
                                     label="权重"
                                     prop="weight"
                                     :rules="[{ type: 'number', message:' '}]">
-                                <el-input v-model.number="collection.weight" autocomplete="off" :disabled="inputDisabled"></el-input>
+                                <el-input v-model.number="category.weight" autocomplete="off" :disabled="inputDisabled"></el-input>
                             </el-form-item>
                         </el-form>
                     </div>
@@ -64,18 +69,16 @@
     import axios from 'axios'
 
     export default {
-        name: 'RightSide',
-        props: {
-            msg: String,
-        },
+        name: 'CategoryManage',
         data() {
             return {
-                collection: {
+                category: {
                     name: "",
+                    collectionName: "",
                     info: "",
                     weight: 1
                 },
-                collections: [],
+                categories: [],
                 dialogVisible: false,
                 nameDisabled: false,
                 inputDisabled:false,
@@ -84,8 +87,8 @@
         },
         mounted: function () {
             let that = this;
-            axios.get("/collection/all").then(function (response) {
-                that.collections = response.data;
+            axios.get("/category/all").then(function (response) {
+                that.categories = response.data;
             })
         },
         methods: {
@@ -105,19 +108,19 @@
             save: function () {
                 this.dialogVisible = false;
                 let that = this;
-                let collectionName = this.collection.name;
-                axios.post("/collection/save", this.collection).then(function (response) {
+                let categoryName = this.category.name;
+                axios.post("/category/save", this.category).then(function (response) {
                     if (response.data.code === 1) {
                         that.$notify({
                             title: '保存成功',
-                            message: '集合' + collectionName + "保存成功",
+                            message: '分类' + categoryName + "保存成功",
                             type: 'success'
                         });
-                        that.clearCollection();
+                        that.clearCategory();
                     } else {
                         that.$notify({
                             title: '保存失败',
-                            message: '集合' + collectionName + "保存失败",
+                            message: '分类' + categoryName + "保存失败",
                             type: 'error'
                         });
                     }
@@ -125,42 +128,44 @@
                 this.inputDisabled = false;
                 this.nameDisabled = false;
             },
-            clearCollection: function() {
-                this.collection = {
+            clearCategory: function() {
+                this.category = {
                     name: "",
+                    collectionName: "",
                     info: "",
                     weight: 1
                 }
             },
-            copy: function (collection) {
+            copy: function (category) {
                 return {
-                    name: collection.name,
-                    info: collection.info,
-                    weight: collection.weight,
+                    name: category.name,
+                    collectionName: category.collectionName,
+                    info: category.info,
+                    weight: category.weight,
                 }
             },
             queryRow: function (row) {
-                this.collection = JSON.parse(JSON.stringify(row));
+                this.category = JSON.parse(JSON.stringify(row));
                 this.dialogVisible = true;
                 this.inputDisabled = true;
                 this.nameDisabled = true;
                 this.operation = 2;
             },
             deleteRow: function (row) {
-                console.log(row['name']);
                 let that = this;
-                let collectName = row['name'];
-                axios.get("/collection/delete", {params: {name: collectName}}).then(function (response) {
+                let categoryName = row['name'];
+                let collectionName = row['collectionName'];
+                axios.get("/category/delete", {params: {name: categoryName, collectionName: collectionName}}).then(function (response) {
                     if (response.data.code === 1) {
                         that.$notify({
                             title: '删除成功',
-                            message: '集合' + collectName + "成功被删除",
+                            message: '分类' + categoryName + "成功被删除",
                             type: 'success'
                         });
                     } else {
                         that.$notify({
                             title: '删除失败',
-                            message: '集合' + collectName + "删除失败",
+                            message: '分类' + categoryName + "删除失败",
                             type: 'error'
                         });
                     }

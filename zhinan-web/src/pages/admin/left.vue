@@ -3,23 +3,23 @@
         <div class="side-content ps-container">
             <ul class="left-nav">
                 <li class="no-child" :key="'collection-collect'">
-                    <a :href="'#'">
+                    <a :href="'#collection'" @click="changeMenu('collection')">
                         <i class="fa fa-bars" style="font-size:15px;margin:0 6px 0 6px"></i>
                         集合管理
                     </a>
                     <i class="open fa fa-plus fa-rotate-135"></i>
 
                 </li>
-                <li class="no-child" :key="'collection-category'">
-                    <a :href="'#'">
+                <li class="no-child" :key="'collection-category'"  @click="changeMenu('category')">
+                    <a :href="'#category'">
                         <i class="fa fa-bars" style="font-size:15px;margin:0 6px 0 6px"></i>
                         分类管理
                     </a>
                     <i class="open fa fa-plus fa-rotate-135"></i>
 
                 </li>
-                <li class="no-child" :key="'collection-record'">
-                    <a :href="'#'">
+                <li class="no-child" :key="'collection-record'"  @click="changeMenu('record')">
+                    <a :href="'#index'">
                         <i class="fa fa-bars" style="font-size:15px;margin:0 6px 0 6px"></i>
                         索引管理
                     </a>
@@ -41,11 +41,12 @@
     export default {
         name: 'LeftSide',
         props: {
-            msg: String
+            menu: String
         },
         data() {
             return {
-                categories: {}
+                categories: {},
+                page: 'record'
             }
         },
         mounted: function () {
@@ -55,7 +56,9 @@
             })
         },
         methods: {
-            md5
+            changeMenu(menuName) {
+                this.$emit("transMenu", menuName)
+            }
         }
     }
 </script>

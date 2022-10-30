@@ -13,4 +13,6 @@ import java.util.List;
 public interface CategoryDao extends CrudRepository<Category, String> {
     @Query(value = "select name, collection_name, info, weight from category where 1=1 order by weight desc ", nativeQuery = true)
     List<Category> getAll();
+
+    int deleteByNameAndCollectionName(String name, String collectionName);
 }

@@ -10,4 +10,8 @@ import java.util.List;
  */
 public interface CategoryService {
     List<Category> findAll();
+
+    int deleteByKey(String name, String collectionName);
+
+    int save(Category collection);
 }
