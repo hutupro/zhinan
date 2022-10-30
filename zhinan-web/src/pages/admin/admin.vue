@@ -4,6 +4,7 @@
         <LeftSide :menu="menu" @transMenu="transMenu($event)" />
         <CollectionManage v-if="menu === 'collection'" />
         <CategoryManage v-if="menu === 'category'" />
+        <RecordManage v-if="menu === 'record'" />
     </div>
 </template>
 
@@ -12,13 +13,15 @@
     import LeftSide from "./left";
     import CollectionManage from "./CollectionManage";
     import CategoryManage from "./CategoryManage";
+    import RecordManage from "./RecordManage";
 
     export default {
         name: 'AdminPage',
         data: () => ({
-            menu: 'index'
+            menu: 'record'
         }),
         components: {
+            RecordManage,
             CategoryManage,
             CollectionManage,
             LeftSide,

@@ -19,7 +19,7 @@
 
                 </li>
                 <li class="no-child" :key="'collection-record'"  @click="changeMenu('record')">
-                    <a :href="'#index'">
+                    <a :href="'#record'">
                         <i class="fa fa-bars" style="font-size:15px;margin:0 6px 0 6px"></i>
                         索引管理
                     </a>

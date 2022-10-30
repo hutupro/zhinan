@@ -13,4 +13,6 @@ import java.util.List;
 public interface RecordDao extends CrudRepository<Record, Integer> {
     @Query(value = "select id, title, info, category, link, tag, weight, collection from Record where 1=1 order by weight desc", nativeQuery = true)
     List<Record> getAll();
+
+    Integer deleteById(int id);
 }

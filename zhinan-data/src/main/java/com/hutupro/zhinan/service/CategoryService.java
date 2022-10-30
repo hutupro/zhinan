@@ -13,5 +13,5 @@ public interface CategoryService {
 
     int deleteByKey(String name, String collectionName);
 
-    int save(Category collection);
+    int save(Category category);
 }

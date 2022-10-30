@@ -1,10 +1,10 @@
 package com.hutupro.zhinan.controller;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import com.hutupro.zhinan.model.Record;
 import com.hutupro.zhinan.service.RecordService;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.LinkedHashMap;
@@ -54,4 +54,28 @@ public class RecordController {
         return new Gson().toJson(collects);
     }
 
+    @RequestMapping(value = "/all")
+    public String getAll() {
+        List<Record> colls = recordService.findAll();
+        return new Gson().toJson(colls);
+    }
+
+    @RequestMapping(value = "/delete")
+    public String delete(@RequestParam("id") int id) {
+        int line = recordService.deleteById(id);
+        return buildRes(line);
+    }
+
+    @PostMapping(value = "/save")
+    public String save(@RequestBody Record record) {
+        int line = recordService.save(record);
+        return buildRes(line);
+    }
+
+    private String buildRes(int line) {
+        JsonObject jo = new JsonObject();
+        jo.addProperty("code", line > 0 ? 1 : 0);
+        jo.addProperty("message", "");
+        return new Gson().toJson(jo);
+    }
 }

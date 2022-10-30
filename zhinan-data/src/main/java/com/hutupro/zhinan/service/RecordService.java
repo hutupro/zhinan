@@ -10,4 +10,8 @@ import java.util.List;
  */
 public interface RecordService {
     List<Record> findAll();
+
+    Integer deleteById(int id);
+
+    int save(Record collection);
 }
