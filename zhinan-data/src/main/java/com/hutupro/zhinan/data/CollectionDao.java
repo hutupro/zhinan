@@ -13,4 +13,6 @@ import java.util.List;
 public interface CollectionDao extends CrudRepository<Collection, String> {
     @Query(value = "select name, info, weight from collection where 1=1 order by weight desc", nativeQuery = true)
     List<Collection> getAll();
+
+    int deleteByName(String name);
 }

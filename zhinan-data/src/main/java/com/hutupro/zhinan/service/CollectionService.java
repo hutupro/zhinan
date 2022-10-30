@@ -10,4 +10,8 @@ import java.util.List;
  */
 public interface CollectionService {
     List<Collection> findAll();
+
+    int deleteByName(String name);
+
+    int save(Collection collection);
 }

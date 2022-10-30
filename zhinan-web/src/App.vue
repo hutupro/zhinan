@@ -26,22 +26,6 @@ export default {
 </script>
 
 <style>
-  * {
-    margin: 0;
-    padding: 0;
-  }
-#app {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  margin-top: 60px;
-  text-decoration: none;
-  color: #39474b;
-  font-size: 12px;
-  font-family: "Lantinghei SC","Open Sans","Lucida Grande",Helvetica,"PingFang SC",STheiti,Verdana,"microsoft yahei","simsun",Geneva,sans-serif;
-}
 
-.main {
-  height: 100%;
-}
 
 </style>

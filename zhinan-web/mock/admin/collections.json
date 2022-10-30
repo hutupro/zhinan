@@ -1,0 +1,12 @@
+[
+    {
+        "name": "name1",
+        "info": "info1",
+        "weight": "2"
+    },
+    {
+        "name": "name2",
+        "info": "info2",
+        "weight": "1"
+    }
+]

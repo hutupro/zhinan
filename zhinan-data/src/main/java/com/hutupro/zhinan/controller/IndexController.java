@@ -14,4 +14,9 @@ public class IndexController {
         return "index";
     }
 
+    @GetMapping(value = "/admin")
+    public String admin() {
+        return "admin";
+    }
+
 }

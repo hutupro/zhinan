@@ -32,5 +32,25 @@ module.exports = function (devServer) {
             var json = getJsonFile("./categories.json");
             res.json(Mock.mock(json));
         });
+
+
+        devServer.app.get("/collection/all", function (rep, res) {
+            var json = getJsonFile("./admin/collections.json");
+            res.json(Mock.mock(json));
+        });
+        devServer.app.get("/collection/delete", function (rep, res) {
+            print("collection/delete", rep);
+            res.json(Mock.mock(JSON5.parse('{"code": 0, message: ""}')));
+        });
+        devServer.app.post("/collection/save", function (rep, res) {
+            print("collection/save", rep);
+            res.json(Mock.mock(JSON5.parse('{"code": 1, message: ""}')));
+        });
     }
 };
+
+function print(url, request) {
+    console.log("request url:[" + url + "], request:[query]:" + JSON.stringify(request['query']) +
+        ", [params]:" + JSON.stringify(request['params']) +
+        ", [data]:" + JSON.stringify(request['data']))
+}

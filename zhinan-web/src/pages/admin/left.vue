@@ -2,17 +2,29 @@
     <div class="left-side">
         <div class="side-content ps-container">
             <ul class="left-nav">
-                <li class="no-child" v-for="(cates, collectionName) in categories" :key="'collection-' + collectionName">
-                    <a :href="'#' + md5(collectionName).substr(0,3)">
+                <li class="no-child" :key="'collection-collect'">
+                    <a :href="'#'">
                         <i class="fa fa-bars" style="font-size:15px;margin:0 6px 0 6px"></i>
-                        {{collectionName}}
+                        集合管理
                     </a>
                     <i class="open fa fa-plus fa-rotate-135"></i>
-                    <ul style="display: block; margin-left: 20px;">
-                        <li v-for="cate in cates" :key="'category-' + cate.name">
-                            <a :href="'#' + md5(collectionName + cate.name).substr(0,3)"><i class="fa fa-caret-right"></i>{{cate.name}}</a>
-                        </li>
-                    </ul>
+
+                </li>
+                <li class="no-child" :key="'collection-category'">
+                    <a :href="'#'">
+                        <i class="fa fa-bars" style="font-size:15px;margin:0 6px 0 6px"></i>
+                        分类管理
+                    </a>
+                    <i class="open fa fa-plus fa-rotate-135"></i>
+
+                </li>
+                <li class="no-child" :key="'collection-record'">
+                    <a :href="'#'">
+                        <i class="fa fa-bars" style="font-size:15px;margin:0 6px 0 6px"></i>
+                        索引管理
+                    </a>
+                    <i class="open fa fa-plus fa-rotate-135"></i>
+
                 </li>
 
             </ul>
@@ -49,5 +61,5 @@
 </script>
 
 <style scoped>
-    @import "../assets/css/base.css";
+    @import "../../assets/css/base.css";
 </style>

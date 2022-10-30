@@ -1,0 +1,250 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+#app {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin-top: 60px;
+    text-decoration: none;
+    color: #39474b;
+    font-size: 12px;
+    font-family: "Lantinghei SC","Open Sans","Lucida Grande",Helvetica,"PingFang SC",STheiti,Verdana,"microsoft yahei","simsun",Geneva,sans-serif;
+}
+
+.main {
+    height: 100%;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+    height: 51px;
+    background: #17191a repeat-x 0 0;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 35%);
+}
+
+.logo {
+    float: left;
+    position: relative;
+    margin: 11px 0 0 18px;
+    color: #31c193;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.logo span {
+    font-size: 16px;
+    font-weight: normal;
+    margin-left: 10px;
+}
+
+.left-side {
+    position: fixed;
+    top: 50px;
+    left: 0;
+    width: 180px;
+    background: #2a393c;
+    height: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+.left-side .side-content {
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+.left-nav li {
+    position: relative;
+}
+
+.left-nav>li>a {
+    display: block;
+    padding: 0 12px;
+    height: 36px;
+    line-height: 36px;
+    font-size: 14px;
+    color: #31c193;
+    text-decoration: none;
+    text-shadow: 0 1px 0 #293334;
+}
+
+.left-nav ul li a {
+    display: block;
+    padding: 8px 10px 8px 17px;
+    color: #b4c8ce;
+    margin-bottom: 4px;
+    border-radius: 3px;
+}
+
+.left-nav a>i:first-child {
+    color: #708985;
+}
+
+.left-nav ul li a i {
+    margin-right: 14px;
+}
+
+.open {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 11px 16px 10px;
+    opacity: .5;
+    color: #708985;
+    cursor: pointer;
+}
+
+ul.left-nav {
+    padding: 5px;
+    margin: 0 0 10px;
+}
+
+.right-side {
+    margin-left: 180px;
+    margin-top: -20px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background: #e7eff4  repeat-x 0 0;
+    height: 100%;
+    fill: red;
+}
+
+.box-main {
+    margin: 0 auto;
+    max-width: 1280px;
+    padding: 10px 20px 0;
+    color: #518193;
+    font-size: 15px;
+}
+
+.panel {
+    margin-bottom: 10px;
+    padding: 1px;
+    border: 0 solid #c5d2db;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 1px 2px rgb(31 35 37 / 8%);
+}
+
+.links .panel-heading {
+    padding: 12px 24px;
+    font-size: 18px;
+}
+
+.panel-heading {
+    padding: 8px;
+    border-bottom: 1px solid #e7eff4;
+    border-radius: 4px 4px 0 0;
+}
+
+.heading-info {
+    margin: 3px 0 0 20px;
+    font-size: 14px;
+    color: #f46c0e;
+    letter-spacing: 2px;
+}
+
+.panel-body {
+    padding: 10px;
+}
+
+.links dl:first-child {
+    padding-top: 0;
+}
+.links dl {
+    border-bottom: 1px solid #f8f8f8;
+    padding: 10px 0;
+}
+.links dl:last-child {
+    border: 0;
+    padding-bottom: 0;
+}
+.row {
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+.links dt.row1 {
+    min-height: 60px;
+}
+
+.links dt.row2 {
+    min-height: 110px;
+}
+
+.links dt a {
+    display: inline-block;
+    margin: 15px;
+    color: #a2a8a2;
+    font-size: 16px;
+    cursor: default;
+}
+
+@media (min-width: 992px) {
+    .col-md-2 {
+        width: 15%
+    }
+
+    .col-md-2 {
+        float: left;
+        min-height: 1px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+.panel-heading:after, .row:after {
+    clear: both;
+    content: '.';
+    display: block;
+    visibility: hidden;
+    height: 0;
+}
+
+.links dd>a:first-child {
+    display: block;
+    padding: 15px 15px 13px;
+    overflow: hidden;
+    border-radius: 5px;
+}
+.links dd a, .open, .expand {
+    -webkit-transition: all .2s ease;
+    transition: all .2s ease;
+}
+
+.links dd a:hover {
+    background: #edf5fa;
+}
+
+a:hover, .links dd a:hover .link-title, .links dd a:hover .link-info {
+    color: #0065a9;
+}
+
+
+a {
+    color: #00ad35;
+    text-decoration: none;
+}
+.link-info {
+    font-size: 12px;
+    color: #a2a8a2;
+    line-height: 1.5em;
+}
+.link-title, .link-info {
+    display: block;
+}
